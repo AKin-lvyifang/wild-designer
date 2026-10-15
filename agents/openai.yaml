@@ -1,4 +1,4 @@
 interface:
   display_name: "Wild Designer"
-  short_description: "没想法时先确定设计方向和布局，再做视觉稿或原型；支持反馈、内容过渡和独立使用"
-  default_prompt: "用 $wild-designer 按已有上下文帮我确定设计方案和布局，给出推荐与取舍，再完成当前需要的成果。"
+  short_description: "说不清感觉时，用对比和指认引导说出偏好，再确定设计方案、做视觉稿或原型"
+  default_prompt: "用 $wild-designer 引导我把想要的感觉说清楚，再确定设计方案和布局，给出推荐与取舍，完成当前需要的成果。"

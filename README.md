@@ -1,6 +1,6 @@
 # Wild Designer
 
-没想法、不会布局，或者觉得设计不对却说不清时，先帮你确定方案，再把它做出来。
+没想法、不会布局，或者觉得设计不对却说不清时，先通过看对比、指画面帮你把感觉说出来，再据此确定方案并做出来。
 
 Wild Designer 是一个以中文协作为主的 Agent Skill，适用于 UI、网站、封面、PPT 配图和风格探索。它从目标和内容出发，给出布局、视觉方向、推荐理由与取舍；已有稿则先找问题，再做有依据的修改。
 
@@ -9,9 +9,11 @@ Wild Designer 是一个以中文协作为主的 Agent Skill，适用于 UI、网
 ## 它会怎样帮你
 
 - **先想清楚布局。** 谁在看、要理解或完成什么、第一眼看哪里，再决定结构、字体和颜色。
-- **少提问，给推荐。** 信息够用就推进；需要比较时默认两个有实质差异的方向，已有方向就直接做一版，不强制逐阶段审批。
+- **用画面引导，不问抽象问题。** 不问“你喜欢什么风格”，而是给两个只差一处的小样问“哪个更接近”，或请你指出最别扭的一块；你的反应会被翻译成设计规则并沿用。
+- **你的眼睛是最终裁判。** 助手会给有理由的推荐，但审美以你看到实物后的反应为准；你说“你定”时才由助手定案。
+- **少提问。** 信息够用就推进；方向未定时默认两个有实质差异的方向，已有方向就直接做一版。
 - **让反馈推动修改。** “太普通、太挤、太花”会被拆成可见问题、影响、保留项和关键改动，再比较新旧得失。
-- **反馈和过渡进入方案。** 组件回应操作，内容切换保持连贯；官网和展示页可用轻微的滚动渐隐/浮现，阅读区域保持清晰。
+- **反馈和过渡进入方案。** 组件回应操作，内容切换保持连贯；成功提示来自真实结果。
 - **保留有效决定。** 复用同一份设计规范或风格约定，保留候选与来源，区分推荐、备选和正式采用。
 
 例如“为独立摄影师做首页”，方案会说明作品如何分组、第一屏展示什么、预约入口放在哪里，以及不同布局的代价。只给“极简、黑白、衬线字体”不算完成方案。
@@ -32,9 +34,11 @@ git clone https://github.com/AKin-lvyifang/wild-designer.git \
 ## 使用示例
 
 ```text
-$wild-designer 我想做一个记账工具首页，但没有布局思路，先帮我定方案。
+$wild-designer 我想做一个记账工具首页，但没想法，也说不清喜欢什么样的。
 
-$wild-designer 这版看起来挤，帮我指出主要原因，保留品牌蓝再改。
+$wild-designer 这版看着不对劲，但我说不出哪里不对。
+
+$wild-designer 我想要高级一点的感觉，帮我弄清楚“高级”具体是什么。
 
 $wild-designer 按这个方向做 HTML 原型，导航用动态图标，内容切换有过渡。
 
@@ -45,9 +49,9 @@ $wild-designer 参考这张图的留白和标题比例，做两个方向；有�
 
 你可以只要方案，也可以要求视觉稿或原型。已有项目规范和当前明确要求优先，不必为使用 Skill 补一整套设计问卷。
 
-## 组件与动效偏好
+## 可选组件参考
 
-导航图标优先参考 [AnimateIcons](https://github.com/Avijit07x/animateicons) 与 [lucide-animated](https://github.com/pqoqubbw/icons)，按钮优先参考 [Amicro](https://github.com/Subhan-code/Amicro--Micro-transitions-) 的合适组件。
+以下是作者常用的可选参考，不是必需项；项目已有组件或你有自己的偏好时以那些为准。导航图标可参考 [AnimateIcons](https://github.com/Avijit07x/animateicons) 与 [lucide-animated](https://github.com/pqoqubbw/icons)，按钮可参考 [Amicro](https://github.com/Subhan-code/Amicro--Micro-transitions-) 的合适组件。
 
 优先复用项目已有封装，再按需要读取少量组件；本仓库不包含这些库的源码或依赖。非 React 项目沿原技术栈表达同样反馈，不为一个动画更换框架。库里的演示效果也需要适配：例如成功勾号与“已保存”必须绑定真实结果，不能悬停就宣称成功。
 
@@ -57,9 +61,10 @@ $wild-designer 参考这张图的留白和标题比例，做两个方向；有�
 
 | 入口 | 用途 |
 | --- | --- |
-| [SKILL.md](SKILL.md) | 独立设计主线、反馈与交付规则 |
+| [SKILL.md](SKILL.md) | 引导说出感觉、确定方案、改稿与交付主线 |
 | [style-guidance.md](references/style-guidance.md) | 从目标形成布局、比较方向、诊断反馈、保持风格 |
 | [interaction-motion.md](references/interaction-motion.md) | 组件来源、状态反馈、内容过渡和实际检查 |
+| [versions.md](references/versions.md) | 多稿时的候选、采用状态和文件路径规则 |
 | [tool-routing.md](references/tool-routing.md) | 按需生图、HTML、可编辑设计与真实能力边界 |
 | [cowart-workflow.md](references/cowart-workflow.md) / [canvas-state.md](references/canvas-state.md) | 只在使用 Cowart 时加载的画布保存与版本合同 |
 | [route_design.py](scripts/route_design.py) | 根据已核实输入规划可选工具路径，不主动探测工具 |
